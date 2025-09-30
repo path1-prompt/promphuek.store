@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -8,16 +9,19 @@
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="Promphuek Store" style="height:40px;margin-right:8px;">
-    <h1>🔐 Admin Panel</h1>
+    <button class="back-btn" onclick="history.back()">← กลับ</button>
+    <div class="logo"><img src="logo.png" alt="Promphuek Store"> 🔐 Admin Panel</div>
   </header>
+
   <div class="container" id="login-box">
+    <h2>เข้าสู่ระบบ</h2>
     <input type="text" id="user" placeholder="Username">
     <input type="password" id="pass" placeholder="Password">
-    <button onclick="login()">เข้าสู่ระบบ</button>
+    <button onclick="login()">Login</button>
   </div>
+
   <div class="container" id="admin-panel" style="display:none;">
-    <h2>เพิ่มสินค้า</h2>
+    <h2>เพิ่มสินค้าใหม่</h2>
     <form onsubmit="addProduct(event)">
       <input type="text" id="pname" placeholder="ชื่อสินค้า" required>
       <textarea id="pdesc" placeholder="คำอธิบาย"></textarea>
@@ -26,11 +30,12 @@
       <input type="number" id="psale" placeholder="ราคาพิเศษ">
       <input type="text" id="pcat" placeholder="หมวดหมู่">
       <input type="number" id="pstock" placeholder="สต๊อก" required>
-      <button type="submit">เพิ่ม</button>
+      <button type="submit">บันทึกสินค้า</button>
     </form>
-    <h3>สินค้า</h3>
+    <h3>รายการสินค้า</h3>
     <div id="manage"></div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
