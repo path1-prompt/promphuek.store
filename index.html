@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promphuek Store</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="announce">🚧 ขณะนี้กำลังทำระบบสั่งซื้ออัตโนมัติ ขออภัยในความไม่สะดวก 🙏</div>
+  <header>
+    <div class="logo"><img src="logo.png" alt="Promphuek Store"> Promphuek Store</div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </header>
+
+  <div class="hero">
+    <h1>Promphuek Store</h1>
+    <p>ของน่ารัก ราคาดี ส่งเร็ว บริการด้วยใจ 💙</p>
+  </div>
+
+  <div class="sidebar" id="sidebar">
+    <ul>
+      <li><a href="index.html">🏠 หน้าหลัก</a></li>
+      <li><a href="about.html">ℹ️ เกี่ยวกับเรา</a></li>
+      <li><a href="faq.html">❓ คำถามพบบ่อย</a></li>
+      <li><a href="contact.html">📞 ติดต่อ</a></li>
+      <li><a href="admin.html">🔐 Admin</a></li>
+    </ul>
+  </div>
+  <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+  <div class="container">
+    <h2>สินค้า</h2>
+    <div class="search-bar">
+      <input type="text" id="search" placeholder="ค้นหาสินค้า..." onkeyup="loadProducts()">
+      <select id="filter" onchange="loadProducts()">
+        <option value="">ทุกหมวดหมู่</option>
+      </select>
+      <select id="stockFilter" onchange="loadProducts()">
+        <option value="">ทุกสต๊อก</option>
+        <option value="in">มีสินค้า</option>
+        <option value="out">หมดสต๊อก</option>
+      </select>
+      <select id="priceSort" onchange="loadProducts()">
+        <option value="">จัดเรียง</option>
+        <option value="new">ใหม่ล่าสุด</option>
+        <option value="old">เก่าที่สุด</option>
+        <option value="asc">ราคาต่ำ → สูง</option>
+        <option value="desc">ราคาสูง → ต่ำ</option>
+      </select>
+    </div>
+    <div class="products" id="product-list"></div>
+    <div class="pagination" id="pagination"></div>
+
+    <div class="review"><b>นัท:</b> ได้ของไว แพ็กดีมาก!</div>
+    <div class="review"><b>กิ๊ฟ:</b> คุณภาพตรงปก ประทับใจ 💯</div>
+    <div class="policy">📜 นโยบาย: ยินดีคืนสินค้าภายใน 7 วันหากไม่ตรงปก</div>
+  </div>
+
+  <div class="newsletter">
+    <h3>📬 สมัครรับข่าวสาร</h3>
+    <input type="email" id="newsletterEmail" placeholder="กรอกอีเมลของคุณ">
+    <button onclick="subscribe()">สมัคร</button>
+  </div>
+
+  <footer>
+    © 2025 Promphuek Store · 234 แมนชั่น จตุจักร กทม.  
+    <div class="social">
+      <a href="https://www.facebook.com/share/19xu8eoaXz/">📘</a>
+      <a href="mailto:yotasak.2550@gmail.com">✉️</a>
+    </div>
+  </footer>
+
+  <div class="bottom-bar">
+    <a href="index.html">🏠 หน้าหลัก</a>
+    <a href="contact.html">📞 ติดต่อ</a>
+    <a href="admin.html">🔐 Admin</a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

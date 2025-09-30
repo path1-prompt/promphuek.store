@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Promphuek Store</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Promphuek Store" style="height:40px;margin-right:8px;">
+    <h1>🔐 Admin Panel</h1>
+  </header>
+  <div class="container" id="login-box">
+    <input type="text" id="user" placeholder="Username">
+    <input type="password" id="pass" placeholder="Password">
+    <button onclick="login()">เข้าสู่ระบบ</button>
+  </div>
+  <div class="container" id="admin-panel" style="display:none;">
+    <h2>เพิ่มสินค้า</h2>
+    <form onsubmit="addProduct(event)">
+      <input type="text" id="pname" placeholder="ชื่อสินค้า" required>
+      <textarea id="pdesc" placeholder="คำอธิบาย"></textarea>
+      <input type="file" id="pimg" accept="image/*">
+      <input type="number" id="pprice" placeholder="ราคาปกติ" required>
+      <input type="number" id="psale" placeholder="ราคาพิเศษ">
+      <input type="text" id="pcat" placeholder="หมวดหมู่">
+      <input type="number" id="pstock" placeholder="สต๊อก" required>
+      <button type="submit">เพิ่ม</button>
+    </form>
+    <h3>สินค้า</h3>
+    <div id="manage"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
