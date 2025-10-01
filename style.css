@@ -372,3 +372,45 @@ button.btn {
   border-radius: 8px;
   font-weight: 600;
 }
+
+/* ✅ ป้องกันสินค้าเลยขอบจอ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 12px; /* เว้นขอบซ้าย-ขวา */
+  overflow-x: hidden;
+}
+
+/* ✅ grid ให้พอดีหน้าจอ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ✅ แก้ header อัดกัน */
+.banner {
+  background: linear-gradient(135deg, #2d3436, var(--primary));
+  color: #fff;
+  padding: 28px 16px;  /* เดิม 20px เพิ่มให้โปร่งขึ้น */
+  text-align: center;  /* จัดกึ่งกลางใน mobile */
+}
+
+.header-inner {
+  flex-direction: column; /* เรียงบน-ล่างแทนซ้าย-ขวา */
+  gap: 8px;
+}
+
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* ✅ ป้องกันเว็บเลื่อนแนวนอน */
+body {
+  overflow-x: hidden;
+}
