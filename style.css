@@ -527,3 +527,54 @@ body {
   from { transform: scale(0.9); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
 }
+/* เส้นแบ่งใต้แบนเนอร์ */
+.section-divider {
+  border: none;
+  height: 3px;
+  margin: 25px 0;
+  background: linear-gradient(270deg, #00f, #0ff, #00f);
+  background-size: 400% 400%;
+  border-radius: 2px;
+  animation: neonMove 3s linear infinite;
+}
+
+@keyframes neonMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* container ปุ่มหมวดหมู่ */
+.categories {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* ปุ่มหมวดหมู่ */
+.category-button {
+  display: inline-block;
+  margin: 6px;
+  padding: 8px 18px;
+  border-radius: 20px;
+  background: #f8f8f8;
+  color: #333;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.category-button:hover {
+  background: #6a1b9a;
+  color: #fff;
+  border-color: #6a1b9a;
+  transform: scale(1.05);
+}
+
+/* ปุ่มที่ถูกเลือก */
+.category-button.active {
+  background: #6a1b9a;
+  color: #fff;
+  border-color: #6a1b9a;
+}
