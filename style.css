@@ -544,37 +544,34 @@ body {
 }
 
 /* container ปุ่มหมวดหมู่ */
-.categories {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-/* ปุ่มหมวดหมู่ */
-.category-button {
+.filter-btn {
   display: inline-block;
   margin: 6px;
   padding: 8px 18px;
   border-radius: 20px;
-  background: #f8f8f8;
-  color: #333;
-  border: 1px solid #ccc;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
+
+  /* เชื่อมกับ section-divider */
+  border: 2px solid transparent;
+  background: linear-gradient(270deg, #00f, #0ff, #00f);
+  background-size: 400% 400%;
+  color: white;
+
+  animation: neonMove 6s linear infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover effect */
-.category-button:hover {
-  background: #6a1b9a;
-  color: #fff;
-  border-color: #6a1b9a;
-  transform: scale(1.05);
+/* Hover */
+.filter-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px #0ff;
 }
 
-/* ปุ่มที่ถูกเลือก */
-.category-button.active {
-  background: #6a1b9a;
+/* Active */
+.filter-btn.active {
+  background: #0066ff;
   color: #fff;
-  border-color: #6a1b9a;
+  border-color: #0ff;
 }
