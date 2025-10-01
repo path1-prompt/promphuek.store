@@ -396,46 +396,15 @@ body {
   }
 }
 
-/* ====== Hero Banner ====== */
 .hero-banner {
-  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  background: url("pm.png") no-repeat center center;
+  background-size: cover;   /* ให้รูปเต็มกล่อง */
   color: #fff;
-  padding: 40px 20px;    /* ✅ ไม่สูงเกินไป */
+  padding: 40px 20px;       /* ใช้ค่าที่คุณตั้งไว้ตอนแรก */
   text-align: center;
   position: relative;
-}
-
-.hero-banner::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(600px 200px at 80% -10%, rgba(255,255,255,.12), transparent 60%);
-  pointer-events: none;
-}
-
-.hero-content {
-  max-width: 700px;   /* ✅ ไม่กว้างเกิน */
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-.hero-content h1 {
-  font-size: 26px;    /* ✅ ขนาดพอดี */
-  margin-bottom: 8px;
-  font-weight: 700;
-}
-
-.hero-content p {
-  font-size: 15px;
-  opacity: 0.95;
-  margin-bottom: 18px;
-}
-
-.hero-content .btn {
-  padding: 10px 20px;
-  font-size: 14px;
-  border-radius: 20px;
+  height: 180px;            /* กำหนดความสูงประมาณเท่าตอนแรก */
+  border-radius: 8px;       /* ถ้าอยากให้ขอบโค้ง */
 }
 
 /* ✅ Responsive มือถือ */
