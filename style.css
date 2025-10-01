@@ -395,3 +395,135 @@ body {
     grid-template-columns: 1fr; /* มือถือเล็ก → 1 ช่อง */
   }
 }
+
+/* ====== Hero Banner ====== */
+.hero-banner {
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  color: #fff;
+  padding: 40px 20px;    /* ✅ ไม่สูงเกินไป */
+  text-align: center;
+  position: relative;
+}
+
+.hero-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(600px 200px at 80% -10%, rgba(255,255,255,.12), transparent 60%);
+  pointer-events: none;
+}
+
+.hero-content {
+  max-width: 700px;   /* ✅ ไม่กว้างเกิน */
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 26px;    /* ✅ ขนาดพอดี */
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.hero-content p {
+  font-size: 15px;
+  opacity: 0.95;
+  margin-bottom: 18px;
+}
+
+.hero-content .btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 20px;
+}
+
+/* ✅ Responsive มือถือ */
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 20px;
+  }
+  .hero-content p {
+    font-size: 13px;
+  }
+  .hero-content .btn {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+}
+
+/* Popup Overlay */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.popup-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Popup Box */
+.popup-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  width: 80%;
+  max-width: 640px;        /* ความกว้างสูงสุด */
+  aspect-ratio: 16 / 9;    /* ✅ ทำให้เป็น 16:9 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  animation: fadeInScale 0.4s ease;
+}
+
+/* Close button (X) */
+.popup-close {
+  position: absolute;
+  right: 12px;
+  top: 8px;
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Content inside popup */
+.popup-content {
+  text-align: center;
+  margin: auto 0;
+}
+.popup-content h2 {
+  font-size: 20px;
+  margin: 10px 0 6px;
+}
+.popup-content p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+/* รูปภาพใน popup */
+.popup-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  object-fit: cover;  /* ✅ ครอบให้สวย */
+}
+
+/* Animation */
+@keyframes fadeInScale {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
