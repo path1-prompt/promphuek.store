@@ -93,24 +93,26 @@ a:hover{color:var(--primary-2)}
   button.btn       { font-size: 12px; padding: 6px 10px; }
 }
 /* ====== Product Card ====== */
-.product-card{
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:14px;
-  box-shadow:var(--shadow);
-  transition:transform .15s ease, box-shadow .15s ease;
+/* ปรับขนาดฟอนต์และ spacing บนมือถือ */
+@media (max-width: 480px) {
+  .product-card {
+    padding: 10px;
+  }
+  .product-card h3 {
+    font-size: 13px;
+    line-height: 1.3em;
+  }
+  .product-card p {
+    font-size: 12px;
+  }
+  .price {
+    font-size: 14px;
+  }
+  button.btn {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
 }
-.product-card:hover{transform:translateY(-2px)}
-
-.product-card header{
-  display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px
-}
-.product-card h3{margin:0;font-size:16px}
-.muted{color:var(--muted)}
-.meta{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
-.price{font-size:18px;font-weight:700;color:var(--accent)}
-
 .badge{
   display:inline-flex;align-items:center;
   padding:4px 8px;border-radius:999px;font-size:12px;font-weight:600;
