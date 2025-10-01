@@ -398,27 +398,28 @@ body {
 
 .hero-banner {
   background: url("pm.png") no-repeat center center;
-  background-size: cover;   /* ให้รูปเต็มกล่อง */
-  color: #fff;
-  padding: 40px 20px;       /* ใช้ค่าที่คุณตั้งไว้ตอนแรก */
-  text-align: center;
+  background-size: cover;
+  height: 220px;
+  border-radius: 8px;
   position: relative;
-  height: 180px;            /* กำหนดความสูงประมาณเท่าตอนแรก */
-  border-radius: 8px;       /* ถ้าอยากให้ขอบโค้ง */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
 }
 
-/* ✅ Responsive มือถือ */
-@media (max-width: 480px) {
-  .hero-content h1 {
-    font-size: 20px;
-  }
-  .hero-content p {
-    font-size: 13px;
-  }
-  .hero-content .btn {
-    font-size: 13px;
-    padding: 8px 16px;
-  }
+.hero-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4); /* เงาทับรูปให้ข้อความชัด */
+  border-radius: 8px;
+}
+
+.hero-content {
+  position: relative; /* ให้ข้อความอยู่บนเงา */
+  z-index: 1;
 }
 
 /* Popup Overlay */
