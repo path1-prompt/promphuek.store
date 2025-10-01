@@ -18,19 +18,21 @@ body {
   margin: 0;
   font-family: "Prompt", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   color: var(--text);
-  background: linear-gradient(135deg, #b8860b, #ffd700, #fff8dc); /* ทองเข้ม → ทองสว่าง → ครีม */
-  background-size: 200% 200%;   /* ทำให้ gradient เคลื่อน */
-  animation: goldShine 12s ease infinite; /* เอฟเฟกต์ประกายทอง */
-  min-height: 100vh;   /* ให้ครอบคลุมเต็มหน้าจอ */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  min-height: 100vh;
 
-/* แอนิเมชันให้พื้นหลังทองขยับ */
-@keyframes goldShine {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  /* ไล่เฉด: ซ้าย → ขาว/เทา/ดำ, ขวา → ม่วงเข้ม/ม่วงอ่อน */
+  background: linear-gradient(
+    100deg,
+    #ffffff 0%,    /* ซ้ายสุด ขาว */
+    #cccccc 20%,   /* เทากลาง */
+    #000000 40%,   /* ดำ (ประมาณกลางจอ) */
+    #6c5ce7 70%,   /* ม่วงเข้ม */
+    #8e7bff 100%   /* ม่วงอ่อนสุด ขอบขวา */
+  );
+
+  background-attachment: fixed; /* ทำให้ไม่เลื่อนตาม */
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 a{color:var(--primary);text-decoration:none}
