@@ -556,16 +556,10 @@ body {
 }
 /* ====== Text Shimmer Effect ====== */
 /* ====== Shimmer Effect เฉพาะข้อความหลัก ====== */
-@keyframes shimmerText {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
-
 h1, h2, h3,
 .tagline,
 .section-title,
-.price,
-.btn {
+.price {
   background-image: linear-gradient(
     120deg,
     #ffffff 20%,
@@ -579,4 +573,11 @@ h1, h2, h3,
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shimmerText 4s linear infinite;
+}
+.btn {
+  color: #fff !important;   /* ข้อความขาว */
+  font-weight: 600;
+}
+.btn.outline {
+  color: var(--primary) !important; /* ปุ่มกรอบใช้สีหลัก */
 }
