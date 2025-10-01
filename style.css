@@ -75,20 +75,22 @@ a:hover{color:var(--primary-2)}
 
 /* ====== Grid ====== */
 /* Product Grid */
+/* Product Grid */
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);  /* 👈 เริ่มที่ 3 คอลัมน์ตั้งแต่มือถือ */
+  grid-template-columns: repeat(3, 1fr);  /* 👈 มือถือก็ 3 คอลัมน์เลย */
   gap: 14px;
 }
 
-/* ถ้าหน้าจอใหญ่มาก (desktop >= 1200px) → 4 คอลัมน์ */
-@media(min-width:1200px){
+/* ถ้าจอกว้างมากๆ เช่น desktop >= 1200px → ขยายเป็น 4 คอลัมน์ */
+@media (min-width:1200px) {
   .grid { grid-template-columns: repeat(4, 1fr); }
 }
-@media(max-width:480px){
+@media (max-width:480px) {
   .product-card h3 { font-size: 13px; }
-  .product-card p { font-size: 12px; }
-  .price { font-size: 14px; }
+  .product-card p  { font-size: 12px; }
+  .price           { font-size: 14px; }
+  button.btn       { font-size: 12px; padding: 6px 10px; }
 }
 /* ====== Product Card ====== */
 .product-card{
