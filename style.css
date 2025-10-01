@@ -527,7 +527,7 @@ body {
   from { transform: scale(0.9); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
 }
-/* เส้นแบ่งใต้แบนเนอร์ */
+
 .section-divider {
   border: none;
   height: 3px;
@@ -543,7 +543,6 @@ body {
   100% { background-position: 100% 50%; }
 }
 
-/* container ปุ่มหมวดหมู่ */
 .filter-btn {
   display: inline-block;
   margin: 6px;
@@ -553,25 +552,25 @@ body {
   font-weight: 500;
   cursor: pointer;
 
-  /* เชื่อมกับ section-divider */
+  /* ธีม neon เดียวกับเส้น section-divider */
   border: 2px solid transparent;
   background: linear-gradient(270deg, #00f, #0ff, #00f);
   background-size: 400% 400%;
-  color: white;
+  color: #fff;
 
   animation: neonMove 6s linear infinite;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover */
+/* hover */
 .filter-btn:hover {
   transform: scale(1.1);
   box-shadow: 0 0 12px #0ff;
 }
 
-/* Active */
+/* ปุ่ม active */
 .filter-btn.active {
   background: #0066ff;
-  color: #fff;
   border-color: #0ff;
+  color: #fff;
 }
