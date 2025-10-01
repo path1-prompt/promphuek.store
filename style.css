@@ -20,21 +20,29 @@ body {
   color: var(--text);
   min-height: 100vh;
 
-  /* ไล่เฉด: ซ้าย → ขาว/เทา/ดำ, ขวา → ม่วงเข้ม/ม่วงอ่อน */
+  /* ไล่เฉดม่วงดำแบบหลาย stop */
   background: linear-gradient(
-    100deg,
-    #ffffff 0%,    /* ซ้ายสุด ขาว */
-    #cccccc 20%,   /* เทากลาง */
-    #000000 40%,   /* ดำ (ประมาณกลางจอ) */
-    #6c5ce7 70%,   /* ม่วงเข้ม */
-    #8e7bff 100%   /* ม่วงอ่อนสุด ขอบขวา */
+    135deg,
+    #4b0082 0%,    /* ม่วงเข้ม */
+    #2b0033 20%,   /* ดำม่วง */
+    #7b2cbf 40%,   /* ม่วงกลาง */
+    #2b0033 60%,   /* ดำม่วง */
+    #9d4edd 80%,   /* ม่วงอ่อน */
+    #c77dff 100%   /* ม่วงอ่อนสุด */
   );
-
-  background-attachment: fixed; /* ทำให้ไม่เลื่อนตาม */
+  background-size: 400% 400%;   /* ✅ ขยายพื้นที่ gradient */
+  animation: moveBg 40s ease infinite;  /* ✅ ขยับช้า ๆ */
+  background-attachment: fixed;
   background-repeat: no-repeat;
-  background-size: cover;
+  overflow-x: hidden;
 }
 
+/* Animation background */
+@keyframes moveBg {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 a{color:var(--primary);text-decoration:none}
 a:hover{color:var(--primary-2)}
 
@@ -582,4 +590,12 @@ h1, h2, h3,
 }
 .btn.outline {
   color: var(--primary) !important; /* ปุ่มกรอบใช้สีหลัก */
+}
+@keyframes shimmerText {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
