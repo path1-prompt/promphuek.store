@@ -43,11 +43,11 @@ a:hover{color:var(--primary-2)}
   position: relative;
   background: linear-gradient(135deg, #2d3436, var(--primary));
   color: #fff;
-  padding: 12px 16px;       /* ลด padding ลง */
+  padding: 20px 16px;   /* พอดี ไม่อัด ไม่โล่งเกิน */
 }
 
 .banner.simple {
-  padding: 12px 16px;       /* ให้เท่ากับหน้าแรก */
+  padding: 20px 16px;   /* เท่ากับหน้าแรก */
 }
 
 .banner::after {
@@ -135,13 +135,7 @@ a:hover{color:var(--primary-2)}
 }
 
 /* ====== Grid ====== */
-/* Product Grid */
-/* Product Grid */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
-  gap: 14px;
-}
+
 
 /* ถ้าจอกว้างมากๆ เช่น desktop >= 1200px → ขยายเป็น 4 คอลัมน์ */
 @media (min-width:1200px) {
@@ -359,11 +353,6 @@ button.btn.primary:hover {
   background: #5b21b6;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 👈 บังคับให้ 3 คอลัมน์เสมอ */
-  gap: 16px;
-}
 button.btn {
   display: inline-block !important;
   width: auto !important;
@@ -390,27 +379,19 @@ button.btn {
   box-sizing: border-box;
 }
 
-/* ✅ แก้ header อัดกัน */
-.banner {
-  background: linear-gradient(135deg, #2d3436, var(--primary));
-  color: #fff;
-  padding: 28px 16px;  /* เดิม 20px เพิ่มให้โปร่งขึ้น */
-  text-align: center;  /* จัดกึ่งกลางใน mobile */
-}
 
-.header-inner {
-  flex-direction: column; /* เรียงบน-ล่างแทนซ้าย-ขวา */
-  gap: 8px;
-}
-
-.main-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-}
 
 /* ✅ ป้องกันเว็บเลื่อนแนวนอน */
 body {
   overflow-x: hidden;
+}
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* tablet มือถือแนวนอน → 2 ช่อง */
+  }
+}
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr; /* มือถือเล็ก → 1 ช่อง */
+  }
 }
