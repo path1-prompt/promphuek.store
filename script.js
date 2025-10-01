@@ -1,5 +1,5 @@
 /* script.js — Promphuek Store */
-/* Robust event binding, modal handling, form submit (Formspree), and bank details */
+/* Event binding, modal handling, form submit (Formspree), and bank details */
 
 (function () {
   const orderModal = document.getElementById('orderModal');
@@ -12,12 +12,28 @@
 
   let currentAcc = '';
 
+  /* --- Toast Function --- */
+  function showToast(msg) {
+    let toast = document.createElement("div");
+    toast.className = "toast";
+    toast.innerText = msg;
+    document.body.appendChild(toast);
+
+    // แสดงผล
+    setTimeout(() => toast.classList.add("show"), 50);
+
+    // ซ่อนอัตโนมัติ
+    setTimeout(() => {
+      toast.classList.remove("show");
+      setTimeout(() => document.body.removeChild(toast), 300);
+    }, 3000);
+  }
+
   /* --- Helpers --- */
   const openModal = (modal) => {
     if (!modal) return;
     modal.setAttribute('aria-hidden','false');
-    // focus first focusable
-    const focusable = modal.querySelector('button, [href], input, textarea, select, [tabindex]:not([tabindex="-1"])');
+    const focusable = modal.querySelector('button, [href], input, textarea, select');
     if (focusable) focusable.focus();
   };
   const closeModal = (modal) => {
@@ -88,15 +104,9 @@
     copyAccBtn.addEventListener('click', async () => {
       try {
         await navigator.clipboard.writeText(currentAcc);
-        alert('คัดลอกเลขบัญชีเรียบร้อย: ' + currentAcc);
+        showToast("คัดลอกเลขบัญชีแล้ว: " + currentAcc);
       } catch (err) {
-        const el = document.createElement('input');
-        el.value = currentAcc;
-        document.body.appendChild(el);
-        el.select();
-        document.execCommand('copy');
-        document.body.removeChild(el);
-        alert('คัดลอกเลขบัญชีเรียบร้อย: ' + currentAcc);
+        showToast("❌ คัดลอกไม่สำเร็จ");
       }
     });
   }
@@ -106,12 +116,12 @@
     orderForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      // Simple front validation
+      // Simple validation
       const required = orderForm.querySelectorAll('[required]');
       for (const field of required) {
         if (!field.value || (field.type === 'email' && !field.value.includes('@'))) {
           field.focus();
-          alert('กรุณากรอกข้อมูลให้ครบถ้วน');
+          showToast("⚠️ กรุณากรอกข้อมูลให้ครบถ้วน");
           return;
         }
       }
@@ -129,11 +139,10 @@
           if (successEl) successEl.hidden = false;
           orderForm.reset();
 
-          // ปิดโมดัลช้าๆ เพื่อให้เห็นข้อความสำเร็จ
           setTimeout(() => {
             if (successEl) successEl.hidden = true;
             closeModal(orderModal);
-            alert('ส่งคำสั่งซื้อเรียบร้อย — กรุณารออีเมลตอบกลับจาก yotasak.2550@gmail.com');
+            showToast("✅ ส่งคำสั่งซื้อเรียบร้อย — รออีเมลตอบกลับ");
           }, 1400);
         } else {
           let msg = 'ไม่สามารถส่งฟอร์มได้';
@@ -141,11 +150,11 @@
             const data = await resp.json();
             if (data && data.error) msg = data.error;
           } catch(_) {}
-          alert('เกิดข้อผิดพลาด: ' + msg);
+          showToast("❌ เกิดข้อผิดพลาด: " + msg);
         }
       } catch (err) {
         console.error(err);
-        alert('เกิดข้อผิดพลาดในการเชื่อมต่อ กรุณาลองใหม่');
+        showToast("❌ เกิดข้อผิดพลาดในการเชื่อมต่อ กรุณาลองใหม่");
       }
     });
   }
