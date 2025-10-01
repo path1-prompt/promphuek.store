@@ -57,11 +57,24 @@
     <a href="#products" class="btn primary">🛒 ดูสินค้าเลย</a>
   </div>
 </section>
+<!-- Category Filter -->
+<div class="category-filter">
+  <button class="filter-btn active" data-category="all">ทั้งหมด</button>
+  <button class="filter-btn" data-category="windows">Windows</button>
+  <button class="filter-btn" data-category="antivirus">Antivirus</button>
+  <button class="filter-btn" data-category="adobe">Adobe</button>
+  <button class="filter-btn" data-category="vpn">VPN</button>
+  <button class="filter-btn" data-category="utilities">Utilities</button>
+  <button class="filter-btn" data-category="productivity">Productivity</button>
+  <button class="filter-btn" data-category="entertainment">Entertainment</button>
+  <button class="filter-btn" data-category="devtools">Developer Tools</button>
+  <button class="filter-btn" data-category="learning">Learning</button>
+</div>
   <main>
     <div class="container">
 <!-- Windows & Office -->
 <!-- Productivity -->
-<section class="section">
+<section class="section" data-category="productivity">
   <h2 class="section-title">📂 Productivity & Work</h2>
   <div class="grid">
     <article class="product-card">
@@ -101,7 +114,7 @@
 </section>
 
 <!-- Entertainment -->
-<section class="section">
+<section class="section" data-category="entertainment">
   <h2 class="section-title">🎵 Entertainment & Media</h2>
   <div class="grid">
     <article class="product-card">
@@ -141,7 +154,7 @@
 </section>
 
 <!-- Developer Tools -->
-<section class="section">
+<section class="section" data-category="devtools">
   <h2 class="section-title">💻 Developer Tools</h2>
   <div class="grid">
     <article class="product-card">
@@ -181,7 +194,7 @@
 </section>
 
 <!-- Learning -->
-<section class="section">
+<section class="section" data-category="learning">
   <h2 class="section-title">📚 Learning & Education</h2>
   <div class="grid">
     <article class="product-card">
@@ -219,7 +232,9 @@
     </article>
   </div>
 </section>
-<section class="section">
+
+<!-- Windows & Office -->
+<section class="section" data-category="windows">
   <h2 class="section-title">🔑 Windows &amp; Office Keys</h2>
   <div class="grid">
     <article class="product-card">
@@ -233,7 +248,6 @@
       </div>
       <button class="btn primary js-only" data-order="Windows 11 Pro Key">สั่งซื้อ</button>
     </article>
-
     <article class="product-card">
       <header>
         <h3>Windows 10 Pro Key</h3>
@@ -245,7 +259,6 @@
       </div>
       <button class="btn primary js-only" data-order="Windows 10 Pro Key">สั่งซื้อ</button>
     </article>
-
     <article class="product-card">
       <header>
         <h3>Office 2021 Pro Plus</h3>
@@ -257,7 +270,6 @@
       </div>
       <button class="btn primary js-only" data-order="Office 2021 Pro Plus">สั่งซื้อ</button>
     </article>
-
     <article class="product-card">
       <header>
         <h3>Office 365 (1 Year)</h3>
@@ -273,7 +285,7 @@
 </section>
 
 <!-- Antivirus -->
-<section class="section">
+<section class="section" data-category="antivirus">
   <h2 class="section-title">🛡️ Antivirus / Security</h2>
   <div class="grid">
     <article class="product-card">
@@ -287,7 +299,6 @@
       </div>
       <button class="btn primary js-only" data-order="Kaspersky (1 Year)">สั่งซื้อ</button>
     </article>
-
     <article class="product-card">
       <header>
         <h3>ESET NOD32 (1 Year)</h3>
@@ -299,7 +310,6 @@
       </div>
       <button class="btn primary js-only" data-order="ESET NOD32 (1 Year)">สั่งซื้อ</button>
     </article>
-
     <article class="product-card">
       <header>
         <h3>Bitdefender (1 Year)</h3>
@@ -315,7 +325,7 @@
 </section>
 
 <!-- Adobe -->
-<section class="section">
+<section class="section" data-category="adobe">
   <h2 class="section-title">🎨 Adobe Creative Cloud</h2>
   <div class="grid">
     <article class="product-card">
@@ -329,7 +339,6 @@
       </div>
       <button class="btn primary js-only" data-order="Adobe Photoshop (1 Year)">สั่งซื้อ</button>
     </article>
-
     <article class="product-card">
       <header>
         <h3>Adobe Premiere Pro (1 Year)</h3>
@@ -341,7 +350,6 @@
       </div>
       <button class="btn primary js-only" data-order="Adobe Premiere Pro (1 Year)">สั่งซื้อ</button>
     </article>
-
     <article class="product-card">
       <header>
         <h3>Adobe Illustrator (1 Year)</h3>
@@ -357,7 +365,7 @@
 </section>
 
 <!-- VPN -->
-<section class="section">
+<section class="section" data-category="vpn">
   <h2 class="section-title">🌍 VPN Services</h2>
   <div class="grid">
     <article class="product-card">
@@ -371,7 +379,6 @@
       </div>
       <button class="btn primary js-only" data-order="NordVPN (1 Year)">สั่งซื้อ</button>
     </article>
-
     <article class="product-card">
       <header>
         <h3>Surfshark VPN (1 Year)</h3>
@@ -383,7 +390,6 @@
       </div>
       <button class="btn primary js-only" data-order="Surfshark VPN (1 Year)">สั่งซื้อ</button>
     </article>
-
     <article class="product-card">
       <header>
         <h3>ExpressVPN (1 Year)</h3>
@@ -399,7 +405,7 @@
 </section>
 
 <!-- Utilities -->
-<section class="section">
+<section class="section" data-category="utilities">
   <h2 class="section-title">⚙️ Utilities &amp; Dev Tools</h2>
   <div class="grid">
     <article class="product-card">
@@ -413,7 +419,6 @@
       </div>
       <button class="btn primary js-only" data-order="WinRAR License">สั่งซื้อ</button>
     </article>
-
     <article class="product-card">
       <header>
         <h3>IDM (Internet Download Manager)</h3>
@@ -425,7 +430,6 @@
       </div>
       <button class="btn primary js-only" data-order="IDM License">สั่งซื้อ</button>
     </article>
-
     <article class="product-card">
       <header>
         <h3>Grammarly Premium (1 Year)</h3>
@@ -437,7 +441,6 @@
       </div>
       <button class="btn primary js-only" data-order="Grammarly Premium (1 Year)">สั่งซื้อ</button>
     </article>
-
     <article class="product-card">
       <header>
         <h3>Canva Pro (1 Year)</h3>
@@ -577,6 +580,23 @@
 
     closeBtn.addEventListener("click", () => popup.classList.remove("active"));
     okBtn.addEventListener("click", () => popup.classList.remove("active"));
+  });
+  
+  // Filter Categories
+  document.querySelectorAll(".filter-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const category = btn.getAttribute("data-category");
+      document.querySelectorAll("section.section").forEach(sec => {
+        if (category === "all" || sec.getAttribute("data-category") === category) {
+          sec.style.display = "block";
+        } else {
+          sec.style.display = "none";
+        }
+      });
+    });
   });
 </script>
   <script src="script.js" defer></script>
