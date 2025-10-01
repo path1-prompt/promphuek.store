@@ -358,3 +358,17 @@ button.btn.primary {
 button.btn.primary:hover {
   background: #5b21b6;
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 👈 บังคับให้ 3 คอลัมน์เสมอ */
+  gap: 16px;
+}
+button.btn {
+  display: inline-block !important;
+  width: auto !important;
+  min-width: 80px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+}
