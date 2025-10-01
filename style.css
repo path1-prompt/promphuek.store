@@ -339,3 +339,22 @@ button.btn:hover {
   flex-direction: column !important;
   justify-content: space-between !important;
 }
+
+button.btn {
+  display: inline-block;   /* ✅ ปุ่มพอดีข้อความ */
+  width: auto;             /* ไม่เต็มกรอบ */
+  min-width: 80px;         /* กำหนดความกว้างขั้นต่ำให้สวย */
+  padding: 8px 14px;       /* ขอบในพอดี */
+  border-radius: 8px;      /* มุมโค้ง */
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button.btn.primary {
+  background: #6d28d9;     /* สีหลัก (ม่วง) */
+  color: #fff;
+}
+
+button.btn.primary:hover {
+  background: #5b21b6;
+}
