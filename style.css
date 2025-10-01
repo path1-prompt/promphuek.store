@@ -20,25 +20,23 @@ body {
   color: var(--text);
   min-height: 100vh;
 
-  /* ไล่เฉดม่วงดำแบบหลาย stop */
+  /* ไล่เฉดม่วงเข้มแบบนีออน */
   background: linear-gradient(
-    135deg,
-    #4b0082 0%,    /* ม่วงเข้ม */
-    #2b0033 20%,   /* ดำม่วง */
-    #7b2cbf 40%,   /* ม่วงกลาง */
-    #2b0033 60%,   /* ดำม่วง */
-    #9d4edd 80%,   /* ม่วงอ่อน */
-    #c77dff 100%   /* ม่วงอ่อนสุด */
+    -45deg,
+    #2d1b69,   /* ม่วงเข้ม */
+    #6c5ce7,   /* ม่วงสด */
+    #8e7bff,   /* ม่วงอ่อน */
+    #2d1b69    /* ม่วงเข้มวนกลับ */
   );
-  background-size: 400% 400%;   /* ✅ ขยายพื้นที่ gradient */
-  animation: moveBg 40s ease infinite;  /* ✅ ขยับช้า ๆ */
+  background-size: 400% 400%;
+  animation: purpleFlow 12s ease infinite;  /* ✅ เร็วขึ้น (12s ต่อรอบ) */
   background-attachment: fixed;
   background-repeat: no-repeat;
   overflow-x: hidden;
 }
 
-/* Animation background */
-@keyframes moveBg {
+/* เอฟเฟกต์พื้นหลังเคลื่อนไหว */
+@keyframes purpleFlow {
   0%   { background-position: 0% 50%; }
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
