@@ -111,6 +111,7 @@ function copyAcc(id) {
     document.body.appendChild(toast);
     setTimeout(() => toast.remove(), 2500);
   }
+  }
 
 
   /* --- Order form submit (Formspree) --- */
