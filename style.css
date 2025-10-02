@@ -766,17 +766,6 @@ h1, h2, h3,
   padding: 4px 8px;
   border-radius: 6px;
 }
-function copyAcc(id) {
-  const acc = document.getElementById(id)?.textContent.trim();
-  if (acc) {
-    navigator.clipboard.writeText(acc);
-    // แนะนำให้ใช้ toast notification แทน alert
-    const toast = document.createElement("div");
-    toast.className = "toast show";
-    toast.innerText = "📋 คัดลอกเลขบัญชีแล้ว: " + acc;
-    document.body.appendChild(toast);
-    setTimeout(() => toast.remove(), 2500);
-  }
 }
 /* Trust Section */
 .trust {
@@ -786,10 +775,8 @@ function copyAcc(id) {
   border-radius: 12px;
   text-align: center;
 }
-.trust-title {
-  font-size: 22px;
-  margin-bottom: 30px;
-  color: var(--primary);
+.trust-title, .section-title {
+  font-size: 18px;   /* หรือ 20px พอเหมาะ */
 }
 .trust-grid {
   display: grid;
@@ -813,14 +800,12 @@ function copyAcc(id) {
   display: block;
   margin-bottom: 10px;
 }
-.trust-card h3 {
-  margin: 6px 0;
+.trust-card h3, .why-card h3 {
   font-size: 16px;
-  font-weight: 600;
-  color: #1e3a8a;
 }
-.trust-card p {
-  font-size: 14px;
-  color: #475569;
-  line-height: 1.5;
+.trust-card p, .why-card p {
+  font-size: 13px;
 }
+}
+
+

@@ -100,16 +100,18 @@
   });
 
   /* --- Copy account button --- */
-  if (copyAccBtn) {
-    copyAccBtn.addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText(currentAcc);
-        showToast("คัดลอกเลขบัญชีแล้ว: " + currentAcc);
-      } catch (err) {
-        showToast("❌ คัดลอกไม่สำเร็จ");
-      }
-    });
+function copyAcc(id) {
+  const acc = document.getElementById(id)?.textContent.trim();
+  if (acc) {
+    navigator.clipboard.writeText(acc);
+    // แนะนำให้ใช้ toast notification แทน alert
+    const toast = document.createElement("div");
+    toast.className = "toast show";
+    toast.innerText = "📋 คัดลอกเลขบัญชีแล้ว: " + acc;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 2500);
   }
+
 
   /* --- Order form submit (Formspree) --- */
   if (orderForm) {
