@@ -57,7 +57,12 @@
   </div>
 </section>
 <hr class="section-divider">
+<!-- Category Filter -->
 <div class="category-filter">
+  <!-- ✅ Search Bar -->
+  <input type="text" id="searchInput" placeholder="🔍 ค้นหาสินค้า..." />
+
+  <!-- ปุ่มกรองหมวด -->
   <button class="filter-btn active" data-category="all">ทั้งหมด</button>
   <button class="filter-btn" data-category="windows">Windows</button>
   <button class="filter-btn" data-category="antivirus">Antivirus</button>
@@ -455,107 +460,157 @@
   </div>
 </section>
 
-      <!-- Payment -->
-      <section class="section payment">
-        <h2 class="section-title">💳 ช่องทางชำระเงิน</h2>
-
-        <div class="bank-grid">
-          <button class="bank-card js-only" data-bank="kbank" aria-haspopup="dialog">
-            <span class="bank-logo kbank" aria-hidden="true"></span>
-            <span class="bank-info">
-              <strong>กสิกรไทย</strong>
-              <small>กดเพื่อดูเลขบัญชี</small>
-            </span>
-          </button>
-
-          <button class="bank-card js-only" data-bank="ktb" aria-haspopup="dialog">
-            <span class="bank-logo ktb" aria-hidden="true"></span>
-            <span class="bank-info">
-              <strong>กรุงไทย</strong>
-              <small>กดเพื่อดูเลขบัญชี</small>
-            </span>
-          </button>
-        </div>
-
-        <div class="upload-instructions">
-          <p>หลังโอน โปรด <strong>อัปโหลดสลิป</strong> ไปยัง Google Drive ของร้าน:</p>
-          <p>
-            <a class="btn outline" href="https://drive.google.com/drive/folders/1kyQjWfRmQer8AKpKe9q2UzyJ_AC-Yl-R" target="_blank" rel="noopener">อัปโหลดสลิปที่นี่</a>
-          </p>
-          <p class="muted small">จากนั้นกรอกฟอร์มสั่งซื้อ และรอการติดต่อกลับทางอีเมล <strong>yotasak.2550@gmail.com</strong> เท่านั้น</p>
-        </div>
-      </section>
 
     </div>
   </main>
 
-  <!-- Order Form Modal -->
-  <div id="orderModal" class="modal" aria-hidden="true" role="dialog" aria-label="ฟอร์มสั่งซื้อ">
-    <div class="modal-content">
-      <button class="modal-close" data-close>✕</button>
-      <h3>ฟอร์มสั่งซื้อสินค้า</h3>
-      <form id="order-form" action="https://formspree.io/f/xjkarvon" method="POST" novalidate>
-        <div class="form-row">
-          <label>สินค้า</label>
-          <input type="text" id="productInput" name="product" readonly required />
-        </div>
-        <div class="form-row">
-          <label>ชื่อ-นามสกุล</label>
-          <input type="text" name="name" required placeholder="ชื่อ-นามสกุล" />
-        </div>
-        <div class="form-row">
-          <label>เบอร์โทร</label>
-          <input type="tel" name="phone" required placeholder="091-xxxxxxx" />
-        </div>
-        <div class="form-row">
-          <label>อีเมล</label>
-          <input type="email" name="email" required placeholder="you@example.com" />
-        </div>
-        <div class="form-row">
-          <label>ลิงก์สลิป (Google Drive)</label>
-          <input type="url" name="slip_url" required placeholder="วางลิงก์สลิปที่อัปโหลด" />
-        </div>
-        <div class="form-row">
-          <label>รายละเอียดเพิ่มเติม</label>
-          <textarea name="message" rows="3" placeholder="จำนวน/หมายเหตุอื่น ๆ"></textarea>
-        </div>
+<!-- Order Form Modal -->
+<div id="orderModal" class="modal" aria-hidden="true" role="dialog" aria-label="ฟอร์มสั่งซื้อ">
+  <div class="modal-content">
+    <button class="modal-close" data-close>✕</button>
+    <h3>ฟอร์มสั่งซื้อสินค้า</h3>
+    <form id="order-form" action="https://formspree.io/f/xjkarvon" method="POST" novalidate>
 
-        <p class="muted small">กรุณาอัปโหลดสลิป <a href="https://drive.google.com/drive/folders/1kyQjWfRmQer8AKpKe9q2UzyJ_AC-Yl-R">คลิ๊กตรงนี้!</a>
-</p>
+      <!-- รายละเอียดลูกค้า -->
+      <div class="form-row">
+        <label>ชื่อ-นามสกุล</label>
+        <input type="text" name="name" required>
+      </div>
 
-        <div class="actions">
-          <button type="submit" class="btn primary">ส่งคำสั่งซื้อ</button>
-          <button type="button" class="btn danger" data-close>ยกเลิก</button>
+      <div class="form-row">
+        <label>อีเมล</label>
+        <input type="email" name="email" required>
+      </div>
+
+      <div class="form-row">
+        <label>เบอร์โทรศัพท์</label>
+        <input type="tel" name="phone" required>
+      </div>
+
+      <div class="form-row">
+        <label>ลิงก์สลิป</label>
+        <input type="url" name="slip" placeholder="วางลิงก์สลิปที่อัปโหลดแล้ว" required>
+      </div>
+
+      <div class="form-row">
+        <label>รายละเอียดเพิ่มเติม</label>
+        <textarea name="message" rows="3"></textarea>
+      </div>
+
+      <!-- ✅ ช่องทางชำระเงิน -->
+      <div class="form-row">
+        <label>💳 ช่องทางชำระเงิน</label>
+        <div class="bank-box">
+          <div class="bank-detail">
+            <strong>กสิกรไทย</strong>
+            <p>
+              เลขบัญชี: <span id="acc-kbank">091-8-71581-4</span>
+              <button type="button" class="btn outline small" onclick="copyAcc('acc-kbank')">คัดลอก</button>
+            </p>
+            <p>ชื่อบัญชี: PROMPHUEK STORE</p>
+          </div>
+          <div class="bank-detail">
+            <strong>กรุงไทย</strong>
+            <p>
+              เลขบัญชี: <span id="acc-ktb">123-4-56789-0</span>
+              <button type="button" class="btn outline small" onclick="copyAcc('acc-ktb')">คัดลอก</button>
+            </p>
+            <p>ชื่อบัญชี: PROMPHUEK STORE</p>
+          </div>
         </div>
-        <p id="form-success" class="success-message" hidden>✅ ส่งคำสั่งซื้อเรียบร้อย — กรุณารออีเมลตอบกลับจากทีมงาน</p>
-      </form>
+        <p class="muted small">
+          หลังโอน โปรดอัปโหลดสลิปไปที่ 
+          <a href="https://drive.google.com/drive/folders/1kyQjWfRmQer8AKpKe9q2UzyJ_AC-Yl-R" target="_blank">Google Drive</a> 
+          และใส่ลิงก์ในช่อง "ลิงก์สลิป" ข้างบน
+        </p>
+      </div>
+      <!-- ✅ จบช่องทางชำระเงิน -->
+
+      <div class="actions">
+        <button type="submit" class="btn primary">ส่งคำสั่งซื้อ</button>
+        <button type="button" class="btn danger" data-close>ยกเลิก</button>
+      </div>
+
+      <p id="form-success" class="success-message" hidden>
+        ✅ ส่งคำสั่งซื้อเรียบร้อย — กรุณารออีเมลตอบกลับจากทีมงาน
+      </p>
+    </form>
+  </div>
+</div>
+<!-- Why Choose Us -->
+<section class="section why-us">
+  <h2 class="section-title">ทำไมต้องเลือกเรา?</h2>
+  <div class="why-grid">
+    <div class="why-card">
+      <span class="why-icon">✅</span>
+      <h3>ลิขสิทธิ์แท้ 100%</h3>
+      <p>มั่นใจได้ว่าสินค้าทุกชิ้นเป็นของแท้ ใช้งานได้จริง อัปเดตได้ตลอด</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🚚</span>
+      <h3>ส่งไวภายใน 5 นาที</h3>
+      <p>หลังชำระเงิน รับคีย์ทางอีเมลทันที รวดเร็ว ปลอดภัย</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🛡️</span>
+      <h3>มีประกัน</h3>
+      <p>หากใช้งานไม่ได้ เปลี่ยนคีย์ใหม่ฟรี มีทีมงานดูแลตลอด</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">💳</span>
+      <h3>ชำระปลอดภัย</h3>
+      <p>รองรับการโอนผ่านธนาคาร ปลอดภัยด้วยระบบ SSL Secured</p>
     </div>
   </div>
+</section>
 
-  <!-- Bank Modal -->
-  <div id="bankModal" class="modal" aria-hidden="true" role="dialog" aria-label="รายละเอียดบัญชีธนาคาร">
-    <div class="modal-content">
-      <button class="modal-close" data-close>✕</button>
-      <div id="bankDetails"></div>
-      <div class="actions">
-        <button class="btn primary" id="copyAccBtn">คัดลอกเลขบัญชี</button>
-        <a class="btn outline" href="https://drive.google.com/drive/folders/1kyQjWfRmQer8AKpKe9q2UzyJ_AC-Yl-R" target="_blank" rel="noopener">อัปโหลดสลิป</a>
+<!-- Trust Section -->
+<section class="trust">
+  <h2 class="trust-title">ทำไมคุณมั่นใจได้เมื่อซื้อกับเรา?</h2>
+  <div class="trust-grid">
+    <div class="trust-card">
+      <span class="trust-icon">✅</span>
+      <h3>ของแท้ 100%</h3>
+      <p>ซอฟต์แวร์ลิขสิทธิ์แท้ ใช้งานได้จริง อัปเดตได้ตลอด</p>
+    </div>
+    <div class="trust-card">
+      <span class="trust-icon">🛡️</span>
+      <h3>รับประกันสินค้า</h3>
+      <p>หากใช้งานไม่ได้ มีการเปลี่ยนใหม่หรือคืนเงินตามเงื่อนไข</p>
+    </div>
+    <div class="trust-card">
+      <span class="trust-icon">🔒</span>
+      <h3>ปลอดภัย</h3>
+      <p>ระบบเว็บไซต์เข้ารหัส SSL Secured ข้อมูลของคุณปลอดภัย</p>
+    </div>
+    <div class="trust-card">
+      <span class="trust-icon">💬</span>
+      <h3>มีทีมงานดูแล</h3>
+      <p>ติดต่อได้ตลอดผ่านโทรศัพท์หรือแชทด่วน มีการบริการหลังการขาย</p>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-left">
+      <p>© 2025 Promphuek Store | Software & License Keys</p>
+      <p class="muted small">สินค้าลิขสิทธิ์แท้ • ปลอดภัย • มีประกัน</p>
+      <div class="trust-badges">
+        <span>🔒 SSL Secured</span>
+        <span>✅ Verified Store</span>
+        <span>💳 Secure Payment</span>
       </div>
     </div>
+    <nav class="footer-nav">
+      <a href="about.html">เกี่ยวกับเรา</a>
+      <a href="policy.html">นโยบาย</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">ติดต่อเรา</a>
+      <a href="https://line.me/ti/p/~promphuek" target="_blank">Line OA</a>
+      <a href="https://www.facebook.com/share/1DtKM5gPbk/" target="_blank">Facebook</a>
+    </nav>
   </div>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© 2025 Promphuek Store | Software & License Keys</p>
-      <nav class="footer-nav">
-        <a href="about.html">เกี่ยวกับเรา</a>
-        <a href="policy.html">นโยบาย</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html">ติดต่อเรา</a>
-      </nav>
-    </div>
-  </footer>
+</footer>
 <!-- Popup Modal -->
 <div class="popup-overlay" id="welcomePopup">
   <div class="popup-box">
@@ -600,5 +655,13 @@
   });
 </script>
   <script src="script.js" defer></script>
+<!-- Quick Contact Button -->
+<div class="contact-fab">
+  <button class="fab-main" id="contactToggle">☎ ติดต่อด่วน</button>
+  <div class="fab-menu" id="contactMenu">
+    <a href="tel:0918715814" class="fab-item">📞 โทรด่วน</a>
+    <a href="https://facebook.com/promphuekstore" target="_blank" class="fab-item">💬 แชทด่วน</a>
+  </div>
+</div>
 </body>
 </html>

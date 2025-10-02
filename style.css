@@ -15,31 +15,8 @@
 *{box-sizing:border-box}
 html,body{height:100%}
 body {
-  margin: 0;
-  font-family: "Prompt", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-  color: var(--text);
-  min-height: 100vh;
-
-  /* ไล่เฉดม่วงเข้มแบบนีออน */
-  background: linear-gradient(
-    -45deg,
-    #2d1b69,   /* ม่วงเข้ม */
-    #6c5ce7,   /* ม่วงสด */
-    #8e7bff,   /* ม่วงอ่อน */
-    #2d1b69    /* ม่วงเข้มวนกลับ */
-  );
-  background-size: 400% 400%;
-  animation: purpleFlow 12s ease infinite;  /* ✅ เร็วขึ้น (12s ต่อรอบ) */
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  overflow-x: hidden;
-}
-
-/* เอฟเฟกต์พื้นหลังเคลื่อนไหว */
-@keyframes purpleFlow {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0); /* เทาอ่อน → เทาขาว */
+  color: #2d3436;
 }
 a{color:var(--primary);text-decoration:none}
 a:hover{color:var(--primary-2)}
@@ -196,7 +173,7 @@ a:hover{color:var(--primary-2)}
 }
 .badge.success {
   background: #ecfdf5;
-  color: #065f46;
+  color: #059669;
   border-color: #a7f3d0;
 }
 
@@ -219,17 +196,15 @@ a:hover{color:var(--primary-2)}
 }
 
 /* ====== Buttons ====== */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  padding:10px 14px;border-radius:10px;border:1px solid transparent;
-  cursor:pointer;font-weight:700
+.btn.primary {
+  background: linear-gradient(135deg, #5B21B6, #1E40AF);
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
-.btn.primary{background:var(--primary);color:#fff}
-.btn.primary:hover{background:var(--primary-2)}
-.btn.danger{background:var(--accent);color:#fff}
-.btn.danger:hover{filter:brightness(1.05)}
-.btn.outline{background:#fff;border-color:var(--border);color:var(--primary)}
-.btn.outline:hover{border-color:var(--primary);color:var(--primary-2)}
+.btn.primary:hover {
+  background: linear-gradient(135deg, #4338CA, #1E3A8A);
+  transform: translateY(-2px);
+}
 
 /* ====== Payment / Banks ====== */
 .payment{margin-top:36px}
@@ -328,11 +303,14 @@ textarea{resize:vertical}
 
 /* Animation Hover */
 .product-card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: #fff;
+  border: 1px solid #E2E8F0; /* เทาอ่อน */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
 }
 .product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
 }
 button.btn {
   transition: background 0.2s ease, transform 0.15s ease;
@@ -596,4 +574,253 @@ h1, h2, h3,
   100% {
     background-position: 200% center;
   }
+}
+
+/* 🔍 Search Bar */
+#searchInput {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  margin: 6px 10px 12px 0;
+  min-width: 220px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+#searchInput:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 8px rgba(108,92,231,0.4);
+}
+
+/* Sticky filter bar */
+.category-filter {
+  position: sticky;
+  top: 0;
+  background: rgba(45,27,105,0.95); /* ม่วงเข้มโปร่ง */
+  backdrop-filter: blur(6px);
+  padding: 12px;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Trust badges */
+.trust-badges {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 13px;
+  opacity: 0.9;
+}
+.trust-badges span {
+  background: rgba(255,255,255,0.1);
+  padding: 4px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+/* Floating Contact Button */
+.contact-fab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+.fab-main {
+  background: linear-gradient(135deg, #2563eb, #1e3a8a);
+  color: #fff;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease;
+}
+.fab-main:hover {
+  transform: scale(1.05);
+}
+
+.fab-menu {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.fab-item {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #111;
+  font-size: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: background 0.2s ease;
+}
+.fab-item:hover {
+  background: #f3f4f6;
+}
+/* Why Choose Us Section */
+.why-us {
+  background: #f8fafc;
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 12px;
+  margin: 40px auto;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.why-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.why-icon {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.why-card h3 {
+  margin: 8px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+.why-card p {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.6;
+}
+.bank-box {
+  display: grid;
+  gap: 14px;
+  margin-top: 8px;
+}
+.bank-detail {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.bank-detail strong {
+  color: var(--primary);
+  font-size: 16px;
+}
+.bank-detail p {
+  margin: 6px 0;
+  font-size: 14px;
+}
+.btn.small {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+.bank-box {
+  display: grid;
+  gap: 14px;
+  margin-top: 8px;
+}
+.bank-detail {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.bank-detail strong {
+  color: var(--primary);
+  font-size: 16px;
+}
+.bank-detail p {
+  margin: 6px 0;
+  font-size: 14px;
+}
+.btn.small {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+function copyAcc(id) {
+  const acc = document.getElementById(id)?.textContent.trim();
+  if (acc) {
+    navigator.clipboard.writeText(acc);
+    // แนะนำให้ใช้ toast notification แทน alert
+    const toast = document.createElement("div");
+    toast.className = "toast show";
+    toast.innerText = "📋 คัดลอกเลขบัญชีแล้ว: " + acc;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 2500);
+  }
+}
+/* Trust Section */
+.trust {
+  background: #f8fafc;
+  padding: 60px 20px;
+  margin: 40px auto;
+  border-radius: 12px;
+  text-align: center;
+}
+.trust-title {
+  font-size: 22px;
+  margin-bottom: 30px;
+  color: var(--primary);
+}
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+.trust-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.trust-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+.trust-icon {
+  font-size: 28px;
+  display: block;
+  margin-bottom: 10px;
+}
+.trust-card h3 {
+  margin: 6px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e3a8a;
+}
+.trust-card p {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.5;
 }

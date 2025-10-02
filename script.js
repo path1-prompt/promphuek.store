@@ -159,3 +159,25 @@
     });
   }
 })();
+
+// 🔍 ระบบค้นหาสินค้า
+const searchInput = document.getElementById("searchInput");
+if (searchInput) {
+  searchInput.addEventListener("input", () => {
+    const query = searchInput.value.toLowerCase().trim();
+    document.querySelectorAll(".product-card").forEach(card => {
+      const text = card.innerText.toLowerCase();
+      card.style.display = text.includes(query) ? "flex" : "none";
+    });
+  });
+}
+// Floating Contact Toggle
+const contactToggle = document.getElementById("contactToggle");
+const contactMenu = document.getElementById("contactMenu");
+
+if (contactToggle) {
+  contactToggle.addEventListener("click", () => {
+    contactMenu.style.display =
+      contactMenu.style.display === "flex" ? "none" : "flex";
+  });
+}
